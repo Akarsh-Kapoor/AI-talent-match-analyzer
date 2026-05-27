@@ -3,6 +3,5 @@ google-generativeai
 python-dotenv
 pypdf
 pandas
-pyodbc
 reportlab
 openpyxl
