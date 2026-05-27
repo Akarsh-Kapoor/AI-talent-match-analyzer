@@ -110,7 +110,7 @@ AI-Talent-Match-Analyzer
 │
 ├── screenshots/
 │   ├── home-page.png
-│   ├── home-page-details.png
+│   ├── home-page-with-details.png
 │   ├── candidate-rankings.png
 │   ├── analysis-matched-skills.png
 │   ├── analysis-missing-skills.png
