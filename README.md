@@ -135,7 +135,7 @@ AI-Talent-Match-Analyzer
 
 ## Home Page
 
-![Home Page](screenshots/home-page.png)
+![Home Page](screenshots/home-page-with-details.png)
 
 ---
 
@@ -175,15 +175,15 @@ AI-Talent-Match-Analyzer
 
 ---
 
-## Generated PDF Report
-
-![PDF Report](screenshots/generated-pdf-report.png)
-
----
-
 ## Power BI Dashboard
 
 ![Power BI Dashboard](screenshots/dashboard-insights.png)
+
+---
+
+## Generated PDF Report
+
+![PDF Report](screenshots/generated-pdf-report.png)
 
 ---
 
