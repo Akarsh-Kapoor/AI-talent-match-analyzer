@@ -1,132 +1,81 @@
-import pyodbc
+import sqlite3
+import pandas as pd
 
 
-# SQL SERVER CONNECTION
-
-conn = pyodbc.connect(
-    "DRIVER={SQL Server};"
-    "SERVER=MSI\sqlexpress;"
-    "DATABASE=TalentAnalyzer;"
-    "Trusted_Connection=yes;"
+conn = sqlite3.connect(
+    "talent_analyzer.db",
+    check_same_thread=False
 )
 
 cursor = conn.cursor()
 
 
-# SAVE ANALYSIS
-
-def save_analysis(
-    candidate_name,
-    score,
-    matched,
-    missing,
-    summary
-):
-
-    try:
-
-        # Remove old entry for same candidate
-
-        cursor.execute(
-            """
-            DELETE FROM CandidateAnalysis
-            WHERE CandidateName = ?
-            """,
-            candidate_name
-        )
-
-        conn.commit()
-
-        # Insert latest analysis
-
-        cursor.execute(
-            """
-            INSERT INTO CandidateAnalysis
-            (
-                CandidateName,
-                MatchScore,
-                MatchedSkills,
-                MissingSkills,
-                CandidateSummary
-            )
-            VALUES
-            (?, ?, ?, ?, ?)
-            """,
-            candidate_name,
-            score,
-            ", ".join(matched),
-            ", ".join(missing),
-            summary
-        )
-
-        conn.commit()
-
-        print(
-            f"{candidate_name} saved successfully."
-        )
-
-    except Exception as e:
-
-        print(
-            f"Database Error: {e}"
-        )
+cursor.execute("""
+CREATE TABLE IF NOT EXISTS CandidateAnalysis (
+    CandidateID INTEGER PRIMARY KEY AUTOINCREMENT,
+    CandidateName TEXT,
+    MatchScore INTEGER,
+    MatchedSkills TEXT,
+    MissingSkills TEXT,
+    CandidateSummary TEXT,
+    AnalysisDate TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+)
+""")
 
 
-# OPTIONAL: FETCH ALL RECORDS
-
-def get_all_candidates():
-
-    cursor.execute(
-        """
-        SELECT *
-        FROM CandidateAnalysis
-        ORDER BY MatchScore DESC
-        """
-    )
-
-    rows = cursor.fetchall()
-
-    return rows
+conn.commit()
 
 
-# OPTIONAL: FETCH SINGLE CANDIDATE
-
-def get_candidate(
-    candidate_name
-):
-
-    cursor.execute(
-        """
-        SELECT *
-        FROM CandidateAnalysis
-        WHERE CandidateName = ?
-        """,
-        candidate_name
-    )
-
-    row = cursor.fetchone()
-
-    return row
-    
 def reset_table():
 
     cursor.execute(
-        """
-        DELETE FROM CandidateAnalysis
-        """
+        "DELETE FROM CandidateAnalysis"
     )
-
-    conn.commit()
 
     cursor.execute(
-        """
-        DBCC CHECKIDENT
-        (
-            'CandidateAnalysis',
-            RESEED,
-            0
-        )
-        """
+        "DELETE FROM sqlite_sequence WHERE name='CandidateAnalysis'"
     )
 
     conn.commit()
+
+
+def save_analysis(
+    candidate_name,
+    match_score,
+    matched_skills,
+    missing_skills,
+    summary
+):
+
+    cursor.execute("""
+    INSERT INTO CandidateAnalysis (
+        CandidateName,
+        MatchScore,
+        MatchedSkills,
+        MissingSkills,
+        CandidateSummary
+    )
+    VALUES (?, ?, ?, ?, ?)
+    """, (
+        candidate_name,
+        match_score,
+        matched_skills,
+        missing_skills,
+        summary
+    ))
+
+    conn.commit()
+
+
+def fetch_all_candidates():
+
+    query = """
+    SELECT *
+    FROM CandidateAnalysis
+    ORDER BY MatchScore DESC
+    """
+
+    return pd.read_sql(
+        query,
+        conn
+    )
