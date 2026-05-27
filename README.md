@@ -33,8 +33,8 @@ Resume PDFs
 → Gemini AI Skill Analysis
 → Candidate Matching Engine
 → SQL Server Database
-→ PDF Report Generation
 → Power BI Dashboard
+→ PDF Report Generation
 
 ---
 
@@ -65,16 +65,16 @@ Resume PDFs
 - Historical analysis tracking
 - Dashboard-ready data model
 
-### 📄 Automated Report Generation
-- Candidate assessment reports
-- PDF export functionality
-- Recruiter-ready summaries
-
 ### 📊 Power BI Dashboard
 - Candidate ranking visualization
 - Match score analytics
 - Skill gap trends
 - Hiring insights
+
+### 📄 Automated Report Generation
+- Candidate assessment reports
+- PDF export functionality
+- Recruiter-ready summaries
 
 ---
 
@@ -237,7 +237,6 @@ The dashboard provides:
 - Highest Match Score
 - Candidate Ranking Distribution
 - Skill Gap Analysis
-- Learning Recommendation Trends
 - Candidate Performance Insights
 
 ---
@@ -266,23 +265,20 @@ This platform helps recruiters:
 - Cloud Deployment (Azure/AWS)
 
 ---
+## 🌟 About Me
 
-# 👨‍💻 Author
+Hi, I'm **Akarsh Kapoor** — a Data & Analytics professional passionate about solving business problems through technology, automation, and data-driven insights.
+My interests include:
 
-### Akarsh Kapoor
+- Data Analytics & Business Intelligence
+- SQL & Database Management
+- Python Automation
+- Cloud Technologies (AWS)
+- AI & Data-Driven Solutions
 
-Data Analyst | Business Intelligence | AI & Analytics Enthusiast
+Let's connect!
 
-- SQL
-- Python
-- Power BI
-- Azure
-- AWS
-- Data Warehousing
-- Business Intelligence
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/akarsh-kapoor/)
 
-GitHub: https://github.com/Akarsh-Kapoor
 
 ---
-
-⭐ If you found this project interesting, consider giving it a star.
