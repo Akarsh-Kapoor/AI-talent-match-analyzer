@@ -265,6 +265,11 @@ This platform helps recruiters:
 - Cloud Deployment (Azure/AWS)
 
 ---
+
+Note : Power BI dashboard source file intentionally excluded to protect sample candidate data.
+
+---
+
 ## 🌟 About Me
 
 Hi, I'm **Akarsh Kapoor** — a Data & Analytics professional passionate about solving business problems through technology, automation, and data-driven insights.
