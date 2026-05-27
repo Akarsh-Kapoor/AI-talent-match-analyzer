@@ -5,7 +5,7 @@ import pyodbc
 
 conn = pyodbc.connect(
     "DRIVER={SQL Server};"
-    "SERVER=MSI\sqlexpress;"
+    "SERVER=MSI\sqlexpress;"                        # INSERT YOUR LOCAL SERVER NAME
     "DATABASE=TalentAnalyzer;"
     "Trusted_Connection=yes;"
 )
