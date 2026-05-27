@@ -96,3 +96,53 @@ def analyze_candidate(
     )
 
     return result.strip()
+    
+def full_candidate_analysis(
+    resume_text,
+    job_description
+):
+
+    prompt = f"""
+    Analyze this resume against the job description.
+
+    Return ONLY valid JSON.
+
+    {{
+        "match_score": 0,
+        "matched_skills": [],
+        "missing_skills": [],
+        "candidate_summary": "",
+        "learning_recommendations": [
+            {{
+                "skill": "",
+                "recommendations": []
+            }}
+        ]
+    }}
+
+    Resume:
+    {resume_text[:3000]}
+
+    Job Description:
+    {job_description}
+    """
+
+    try:
+
+        response = model.generate_content(
+            prompt
+        )
+
+        return response.text
+
+    except Exception as e:
+
+        return """
+        {
+            "match_score": 0,
+            "matched_skills": [],
+            "missing_skills": [],
+            "candidate_summary": "Analysis failed",
+            "learning_recommendations": []
+        }
+        """
