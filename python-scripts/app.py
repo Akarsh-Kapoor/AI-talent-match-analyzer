@@ -13,7 +13,7 @@ import pandas as pd
 
 from skill_extractor import (
     extract_resume_text,
-    analyze_candidate
+    full_candidate_analysis
 )
 
 # PAGE CONFIG
@@ -65,16 +65,15 @@ if uploaded_files and jd:
 
                 try:
 
-                    # Extract Resume Text
-                    resume_text = extract_resume_text(file)
-
-                    # AI Analysis
-                    analysis = analyze_candidate(
-                        resume_text,
-                        jd
+                    analysis = full_candidate_analysis(
+                                resume_text,
+                                jd
+                            )
+                    import json
+                    data = json.loads(
+                        analysis
                     )
 
-                    data = json.loads(analysis)
                     save_analysis(
                         candidate_name=data["candidate_name"],
                         score=data["match_score"],
