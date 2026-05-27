@@ -1,6 +1,8 @@
 streamlit
 google-generativeai
+python-dotenv
 pypdf
-pyodbc
 pandas
+pyodbc
 reportlab
+openpyxl
