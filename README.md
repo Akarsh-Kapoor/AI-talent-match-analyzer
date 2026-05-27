@@ -266,7 +266,7 @@ This platform helps recruiters:
 
 ---
 
-#Note : Power BI dashboard source file intentionally excluded to protect sample candidate data.
+**Note : Power BI dashboard source file intentionally excluded to protect sample candidate data.**
 
 ---
 
