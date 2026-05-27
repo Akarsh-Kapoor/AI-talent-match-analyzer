@@ -25,7 +25,7 @@ def extract_resume_text(pdf_file):
         if page_text:
             text += page_text
 
-    return text
+    return text[:3000]
 
 
 def analyze_candidate(
