@@ -64,6 +64,9 @@ if uploaded_files and jd:
             for file in uploaded_files:
 
                 try:
+                    resume_text = extract_resume_text(
+                            uploaded_file
+                        )
 
                     analysis = full_candidate_analysis(
                                 resume_text,
