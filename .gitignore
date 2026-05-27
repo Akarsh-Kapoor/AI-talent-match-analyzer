@@ -1,0 +1,56 @@
+# Virtual Environment
+venv/
+env/
+.venv/
+
+# Python Cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Environment Variables
+.env
+
+# Generated Reports
+candidate-generated-reports/
+
+# Test Resumes
+test-resumes/
+
+# Streamlit Cache
+.streamlit/
+
+# IDE Files
+.vscode/
+.idea/
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Power BI Temporary Files
+*.tmp
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Build Files
+build/
+dist/
+
+# SQL Server Backup Files
+*.bak
+
+# Temporary Files
+temp/
+tmp/
+
+# Python Egg Files
+*.egg-info/
+
+# Generated PDFs (Optional)
+*_Report.pdf
